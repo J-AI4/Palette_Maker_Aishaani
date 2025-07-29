@@ -37,13 +37,38 @@ h1 {
 }
 
 #paletteContainer {
-    width: 100%
+    width: 100%;
     max-width: 600px;
     text-align: center;
 }
 
 #paletteContainer p {
     margin-bottom: 1rem;
-    font-style: italic
+    font-style: italic;
     color: #bbb;
+}
+
+.palette {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    box-shadow: 0 0 10px #0008 inset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2 ease;
+    position: relative;
 }
