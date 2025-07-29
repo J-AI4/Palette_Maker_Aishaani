@@ -1,8 +1,6 @@
-css
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1e1e2f;
+    background-color: #f4e2da;
     color: #eee;
     display: flex;
     flex-direction: column;
@@ -15,25 +13,27 @@ body {
 h1 {
     margin-bottom: 1rem;
     font-weight: 700;
-    font-size: 2.5rem;
-    color: #61dafb;
-    text-shadow: 0 0 8px #61dafb88;
+    font-size: 5rem;
+    color: #feb9b9;
+    text-shadow: 0 0 8px #fa668b88;
 }
 
 #imageInput {
     padding: 0.5rem;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    border: none;
-    background-color: #33334d;
-    color: #eee;
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 10px;
+    border: #DEDAF4;
+    border-style: dashed;
+    background-color: #D9EDF8;
+    color: #000000;
     cursor: pointer;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     transition: background-color 0.3s ease;
 }
 
 #imageInput:hover {
-    background-color: #454566;
+    background-color: #E4F1EE;
 }
 
 #paletteContainer {
@@ -45,7 +45,9 @@ h1 {
 #paletteContainer p {
     margin-bottom: 1rem;
     font-style: italic;
-    color: #bbb;
+    font-family: ;
+    font-size: 1.5rem;
+    color: #babaff;
 }
 
 .palette {
@@ -71,4 +73,16 @@ h1 {
     color: #fff;
     transition: transform 0.2s ease, box-shadow 0.2 ease;
     position: relative;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #cad8ff, 0 0 30px #617bfb67 inset;
+}
+
+.color-hex {
+    margin-top: 0.5rem;
+    font-family: monospace;
+    font-size: 1.1rem;
+    text-shadow: 0 0 4px #0008;
 }
