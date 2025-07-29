@@ -21,5 +21,29 @@ h1 {
 }
 
 #imageInput {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #33334d;
+    color: #eee;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+}
 
+#imageInput:hover {
+    background-color: #454566;
+}
+
+#paletteContainer {
+    width: 100%
+    max-width: 600px;
+    text-align: center;
+}
+
+#paletteContainer p {
+    margin-bottom: 1rem;
+    font-style: italic
+    color: #bbb;
 }
