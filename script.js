@@ -77,3 +77,19 @@ function rgbToHex(rgb) {
             .join('')
     );
 }
+
+function displayPalette(colors) {
+    paletteContainer.innerHTML = '';
+    colors.array.forEach((color) => {
+        const swatch = document.createElement('div');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = color;
+
+        consy hexText = document.createElement('div');
+        hexText.className = 'color-hex';
+        hexText.textContent = color.toUpperCase();
+
+        swatch.appendChild(hextext);
+        paletteContainer.appendChild(swatch);
+    });
+}
