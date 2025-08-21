@@ -3,9 +3,9 @@ const canvas = document.getElementById('imageCanvas');
 const ctx = canvas.getContext('2d');
 const paletteContainer = document.getElementById('palette');
 
-imageInput.addEventListener('change', () = {
+imageInput.addEventListener('change', () => {
     const file = imageInput.files[0];
-    if (file) return;
+    if (!file) return;
 
     const img = new Image();
     const reader = new FileReader();
@@ -56,40 +56,45 @@ function getDominantColors(imageData, count) {
         const g = data[i + 1];
         const b = data[i + 2];
 
-        const key = '${Math.round(r/32) * 32}, ${Math.round(g / 32) * 32},${Math.round(b / 32) * 32}';
-        colorMap.set(key, (colorMap.get(key) \\ 0) + 1);
+        const key = `${Math.round(r / 32) * 32},${Math.round(g / 32) * 32},${Math.round(b / 32) * 32}`;
+        colorMap.set(key, (colorMap.get(key) || 0) + 1);
     }
 
     const sortedColors = [...colorMap.entries()].sort((a, b) => b[1] - a[1]);
 
     const topColors = sortedColors.slice(0, count).map(c => c[0]);
-    while (topColors.length < count) topColors.push('0,0,0');
+
+    while (topColors.length < count) {
+        topColors.push('0,0,0');
+    }
 
     return topColors.map(rgbToHex);
 }
 
-function rgbToHex(rgb) {
-    return (
-        '#' +
-        rgb
-            .split(',')
-            .map((x) => parseInt(x).toString(16).padStart(2, '0'))
-            .join('')
-    );
+function rgbToHex(rgbStr) {
+    const [r, g, b] = rgbStr.split(',').map(Number);
+    return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
 }
 
 function displayPalette(colors) {
     paletteContainer.innerHTML = '';
-    colors.array.forEach((color) => {
+
+    colors.forEach((color) => {
         const swatch = document.createElement('div');
-        swatch.className = 'color-swatch';
+        swatch.classList.add('color-swatch');
         swatch.style.backgroundColor = color;
 
-        consy hexText = document.createElement('div');
-        hexText.className = 'color-hex';
-        hexText.textContent = color.toUpperCase();
+        const hexLabel = document.createElement('div');
+        hexLabel.classList.add('color-hex');
+        hexLabel.textContent = color.toUpperCase();
 
-        swatch.appendChild(hextext);
+        swatch.appendChild(hexLabel);
         paletteContainer.appendChild(swatch);
+
+        swatch.addEventListener('click', () => {
+            navigator.clipboard.writeText(color).then(() => {
+                alert(`Copied ${color} to clipboard!`);
+            });
+        });
     });
 }
