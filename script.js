@@ -56,7 +56,7 @@ function getDominantColors(imageData, count) {
         const g = data[i + 1];
         const b = data[i + 2];
 
-        const key = `${Math.round(r / 32) * 32},${Math.round(g / 32) * 32},${Math.round(b / 32) * 32}`;
+        const key = `${Math.round(r / 16) * 16},${Math.round(g / 16) * 16},${Math.round(b / 16) * 16}`;
         colorMap.set(key, (colorMap.get(key) || 0) + 1);
     }
 
